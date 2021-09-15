@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Square from "./components/square";
+import "./App.css";
 
 function App() {
+  const [move, setMove] = useState(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(move);
+    return setMove(!move);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='parentContainer'>
+      <div className="squareContainer">
+        <div className="row">
+          <Square move={move} onSubmit={(e) => handleSubmit()}/>
+          <Square move={move} onSubmit={(e) => handleSubmit()}/>
+          <Square move={move} onSubmit={(e) => handleSubmit()}/>
+        </div>
+        <div className="row">
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div className="row">
+          <Square />
+          <Square />
+          <Square />
+        </div>
+      </div>
     </div>
   );
 }

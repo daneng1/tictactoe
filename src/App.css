@@ -1,5 +1,11 @@
-.parentContainer {
+#parentContainer {
   position: relative;
+  margin: 10% 35%;
+}
+
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 50px;
 }
 
 .squareContainer {
@@ -10,4 +16,20 @@
 .row {
   display: flex;
   flex-direction: row;
+}
+
+.inputForm{
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-content: center;
+}
+
+form {
+
+}
+
+input {
+  height: 20px;
+  border-radius: 5px;
 }

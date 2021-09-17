@@ -55,10 +55,10 @@ function App() {
     <>
     {isActive ? 
     <div id='parentContainer'>
-      <h1>{player1.toUpperCase()} vs {player2.toUpperCase()}</h1>
+      <h1>{player1} vs {player2}</h1>
       {winner ? 
-      <h1>Winner is {winner}</h1> :  
-      <h1>Next Move - {move ? "X" : "O"}</h1>
+      <h2>Congrats {winner === "O" ? player1 : player2 }, you are the winner!!</h2> :  
+      <h2>Next Move - {move ? player2 : player1}</h2>
     }
       <div className="squareContainer">
         <div className="row">
@@ -83,8 +83,8 @@ function App() {
     <div className='inputForm'>
       <h1>TiC TaC ToE</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input type='text' placeholder='player1' onChange={(e) => setPlayer2(e.target.value)}></input>
-        <input type='text' placeholder='player2' onChange={(e) => setPlayer1(e.target.value)}></input>
+        <input type='text' placeholder='player1' onChange={(e) => setPlayer1(e.target.value.toUpperCase())}></input>
+        <input type='text' placeholder='player2' onChange={(e) => setPlayer2(e.target.value.toUpperCase())}></input>
         <button className='btn-main'>Lets Play</button>
       </form>
     </div>

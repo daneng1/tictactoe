@@ -12,22 +12,25 @@ function App() {
   const [winner, setWinner] = useState();
 
   const handleClick = (val) => {
-    let newBoard = board;
-    if(move) {
-      newBoard.splice(val, 1, 'X')
-    } else {
-      newBoard.splice(val, 1, 'O')
+    if(board[val] === null) {
+      let newBoard = board;
+      if(move) {
+        newBoard.splice(val, 1, 'X')
+      } else {
+        newBoard.splice(val, 1, 'O')
+      }
+      setBoard(newBoard);
+      console.log(val, board);
+      setMove(!move);
+      setWinner(CalculateWinner(board));
     }
-    setBoard(newBoard);
-    console.log(val, board);
-    setMove(!move);
-    setWinner(CalculateWinner(board));
   }
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsActive(true);
-    console.log(player1, player2);
+    if(player1 && player2) {
+      setIsActive(true);
+    } 
   }
 
   const renderSquare = (i) => {
@@ -74,7 +77,7 @@ function App() {
           {renderSquare(8)}
           </div>
       </div>
-      <button onClick={() => playAgain()}>Play Again</button>
+      <button className='btn-main' onClick={() => playAgain()}>Play Again</button>
     </div>
     : 
     <div className='inputForm'>
@@ -82,7 +85,7 @@ function App() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type='text' placeholder='player1' onChange={(e) => setPlayer2(e.target.value)}></input>
         <input type='text' placeholder='player2' onChange={(e) => setPlayer1(e.target.value)}></input>
-        <button>Lets Play</button>
+        <button className='btn-main'>Lets Play</button>
       </form>
     </div>
     }

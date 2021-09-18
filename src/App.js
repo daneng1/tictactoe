@@ -20,7 +20,6 @@ function App() {
         newBoard.splice(val, 1, 'O')
       }
       setBoard(newBoard);
-      console.log(val, board);
       setMove(!move);
       setWinner(CalculateWinner(board));
     }
@@ -83,9 +82,9 @@ function App() {
     <div className='inputForm'>
       <h1>TiC TaC ToE</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <input type='text' placeholder='player1' onChange={(e) => setPlayer1(e.target.value.toUpperCase())}></input>
-        <input type='text' placeholder='player2' onChange={(e) => setPlayer2(e.target.value.toUpperCase())}></input>
-        <button className='btn-main'>Lets Play</button>
+        <input title="input-field1" type='text' placeholder='player1' onChange={(e) => setPlayer1(e.target.value.toUpperCase())}></input>
+        <input title="input-field2" type='text' placeholder='player2' onChange={(e) => setPlayer2(e.target.value.toUpperCase())}></input>
+        <button title="submit_players" className='btn-main'>Lets Play</button>
       </form>
     </div>
     }
